@@ -1,12 +1,5 @@
-import { getParams, setParams, deleteParam } from './utils/URLParams.js'
+import fetchApi from './utils/fetchApi.js'
 
 // EXAMPLE
-let url = location.href
-
-url = setParams(url, { order_by: -1, others: 'jajajaj' })
-console.log(url)
-
-url = deleteParam(url, 'others')
-console.log(url)
-
-console.log(getParams(url))
+fetchApi('http://gateway.marvel.com/v1/public/characters', { offset: 20 })
+.then(data => console.log(data))

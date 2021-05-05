@@ -1,5 +1,7 @@
-import fetchApi from './utils/fetchApi.js'
+import base from './services/crudder.js'
 
 // EXAMPLE
-fetchApi('http://gateway.marvel.com/v1/public/characters', { offset: 20 })
-.then(data => console.log(data))
+const characters = base('characters')
+
+characters.getAll().then(data => console.log(data))
+characters.getOne('1009610').then(data => console.log(data))

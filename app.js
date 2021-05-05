@@ -1,7 +1,8 @@
-import base from './services/crudder.js'
+import { useComics } from './hooks/index.js'
 
 // EXAMPLE
-const characters = base('characters')
+const { getAllComics, getOneComic } = useComics()
 
-characters.getAll().then(data => console.log(data))
-characters.getOne('1009610').then(data => console.log(data))
+getAllComics()
+
+getOneComic('82967')

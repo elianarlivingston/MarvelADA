@@ -12,7 +12,7 @@ const routes = [
 
     {
         path: '/characters/:id',
-        component: () => `<h1>Personaje ID</h1>`,
+        component: (id) => `<h1>Personaje ${id}</h1>` ,
         name: 'Characters ID'
     }
 ]

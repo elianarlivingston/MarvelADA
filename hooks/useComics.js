@@ -5,8 +5,9 @@ const { getAll, getOne } = base('comics')
 export default function useComics() {
     return {
         getAllComics: async (params) => {
-            const data = await getAll(params).then(res => {
-                const { offset, limit, total, count, results } = res.data
+            const data = await getAll(params)
+            .then(res => {
+                const { offset, limit, total, count, results } = res?.data
 
                 return {
                     meta: { offset, limit, total, count },
@@ -14,12 +15,13 @@ export default function useComics() {
                 }
             })
 
-            return data
+            return data || {}
         },
         getOneComic: async (id, params) => {
-            const data = await getOne(id, params).then(res => res.data.results['0'])
+            const data = await getOne(id, params)
+            .then(res => res?.data?.results['0']) 
 
-            return data
+            return data || {}
         }
     }
 }

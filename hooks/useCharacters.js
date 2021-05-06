@@ -6,7 +6,7 @@ export default function useCharacters() {
     return {
         getAllCharacters: async (params) => {
             const data = await getAll(params).then(res => {
-                const { offset, limit, total, count, results } = res.data
+                const { offset, limit, total, count, results } = res?.data
 
                 return {
                     meta: { offset, limit, total, count },
@@ -14,12 +14,12 @@ export default function useCharacters() {
                 }
             })
 
-            return data
+            return data || {}
         },
         getOneCharacter: async (id, params) => {
-            const data = await getOne(id, params).then(res => res.data.results['0'])
+            const data = await getOne(id, params).then(res => res?.data?.results['0'])
 
-            return data
+            return data || {}
         }
     }
 }

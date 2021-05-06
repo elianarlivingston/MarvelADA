@@ -1,13 +1,8 @@
-import { useCharacters } from './hooks/index.js'
+import router from './router/router.js'
+import routes from './router/routes.js'
 
-// EXAMPLE
-// const { getAllComics, getOneComic } = useComics()
-const { getAllCharacters, getOneCharacter } = useCharacters()
+window.addEventListener('DOMContentLoaded', () => {
+    router(routes)
+})
 
-getAllCharacters()
-.then(data => console.log(data))
-getOneCharacter('1017100')
-.then(data => console.log(data))
-
-
-console.log('Hello, word!')
+window.addEventListener('hashchange', () => router(routes))

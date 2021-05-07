@@ -1,0 +1,30 @@
+@use "../../settings/variables";
+
+
+.a-pagination {
+    display: flex;
+    justify-content: center;
+    gap: .25rem;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.a-pagination__btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid variables.$text-muted-color;
+    color: variables.$text-muted-color;
+    background-color: variables.$background-inverted-color;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.a-pagination__btn:disabled {
+    border-color: variables.$primary-color;
+    color: variables.$primary-color;
+}

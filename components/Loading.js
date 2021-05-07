@@ -1,1 +1,1 @@
-export const Loading = () => `<div>Loading...</div>`
+export const Loading = () => `<div class="g-loading-wrapper"><div class="g-loading"></div></div>`

@@ -1,0 +1,40 @@
+@use "../../settings/variables";
+
+.m-card-comics {
+    max-width: 225px;
+    aspect-ratio: 2/3;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+
+    &:hover .m-card-comics__title {
+        color: variables.$primary-color;
+    }
+
+    &:hover .m-card-comics__image {
+        transform: translateY(-15px);
+        transition: transform .3s ease;
+    }
+}
+
+.m-card-comics__title {
+    font-size: variables.$h5;
+    font-weight: 600;
+    color: variables.$text-muted-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.m-card-comics__image {
+    margin: 0;
+    padding: 0;
+    transform: translateY(0);
+    transition: transform .3s ease;
+    box-shadow: 0 26px 24px -16px #00000040;
+    height: 100%;
+
+    & img {
+        height: 100%;
+    }
+}

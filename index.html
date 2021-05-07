@@ -5,15 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marvel</title>
-    <!-- EXAMPLE -->
-    <style>
-        .is-hidden {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="shortcut icon" href="./assets/favicon.png">
 </head>
 <body>
-    <div id="root">
+
+    <div>
+        <header class="m-navbar">
+            <div class="m-navbar__top o-container">
+                <button class="a-btn-icon" data-toggle="sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+    
+                <svg width="130" height="50" xmlns="http://www.w3.org/2000/svg">
+                    <rect fill="#EC1D24" width="100%" height="100%"></rect>
+                    <path fill="#FEFEFE" d="M126.222 40.059v7.906H111.58V4h7.885v36.059h6.757zm-62.564-14.5c-.61.294-1.248.44-1.87.442v-14.14h.04c.622-.005 5.264.184 5.264 6.993 0 3.559-1.58 5.804-3.434 6.705zM40.55 34.24l2.183-18.799 2.265 18.799H40.55zm69.655-22.215V4.007H87.879l-3.675 26.779-3.63-26.78h-8.052l.901 7.15c-.928-1.832-4.224-7.15-11.48-7.15-.047-.002-8.06 0-8.06 0l-.031 39.032-5.868-39.031-10.545-.005-6.072 40.44.002-40.435H21.278L17.64 26.724 14.096 4.006H4v43.966h7.95V26.78l3.618 21.192h4.226l3.565-21.192v21.192h15.327l.928-6.762h6.17l.927 6.762 15.047.008h.01v-.008h.02V33.702l1.845-.27 3.817 14.55h7.784l-.002-.01h.022l-5.011-17.048c2.538-1.88 5.406-6.644 4.643-11.203v-.002C74.894 19.777 79.615 48 79.615 48l9.256-.027 6.327-39.85v39.85h15.007v-7.908h-7.124v-10.08h7.124v-8.03h-7.124v-9.931h7.124z"></path>
+                    <path fill="#EC1D24" d="M0 0h30v52H0z"></path>
+                    <path fill="#FEFEFE" d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z"></path>
+                </svg>
+    
+                <figure>
+                    <a href="#">
+                        <img src="https://s3.amazonaws.com/com.marvel.terrigen/qa/styles/thumbnail/s3/icon-mu-shield_0.png" alt="Marvel user avatar">
+                    </a>
+                </figure>
+            </div>
+            <div class="m-navbar__bottom">
+                <ul class="o-ui-list o-ui-list--horizontal">
+                    <li class="m-navbar__items">
+                        <a href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li class="m-navbar__items">
+                        <a href="#/characters">
+                            Characters
+                        </a>
+                    </li>
+                    <li class="m-navbar__items">
+                        <a  href="#/comics">
+                            Comics
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <aside class="g-sidebar g-sidebar--hidden">
+                <div class="is-text-right">
+                    <button class="a-btn-icon" data-toggle="sidebar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
+                <ul class="o-ui-list">
+                    <li>
+                        <a class="g-sidebar__item" href="#">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a class="g-sidebar__item" href="#/characters">
+                            Characters
+                        </a>
+                    </li>
+                    <li>
+                        <a class="g-sidebar__item" href="#/comics">
+                            Comics
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </header>
+        <main id="root">
+        </main>
     </div>
     <script src="./app.js" type="module"></script>
 </body>

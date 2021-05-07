@@ -1,0 +1,136 @@
+@use "../../settings/variables";
+
+.m-navbar {
+    background-color: variables.$background-muted-ligth-color;
+    color: variables.$text-inverted-color;
+}
+
+.m-navbar__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: variables.$height-header-top;
+
+    & figure {
+        margin: 0;
+        padding: 0;
+        border-left: 1px solid variables.$border-gray;
+        border-right: 1px solid variables.$border-gray;
+        padding: 0 1.5rem;
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    & img {
+        width: 30px;
+    }
+
+    & button {
+        border-left: 1px solid variables.$border-gray;
+        border-right: 1px solid variables.$border-gray;
+        padding: 0 1.5rem;
+        height: 100%;
+    }
+}
+
+.m-navbar__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: variables.$height-header-bottom;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-size: variables.$h6;
+    border-top: 1px solid variables.$border-gray;
+
+    & ul {
+        height: 100%;
+        align-items: center;
+    }
+}
+
+.g-sidebar {
+    display: block;
+    width: 70%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: variables.$background-muted-ligth-color;
+    padding: 1rem;
+
+    &__item {
+        text-transform: uppercase;
+        letter-spacing: 0;
+        text-align: center;
+        font-size: variables.$h6;
+        border-bottom: 2px solid transparent;
+        transition: all .3s ease;
+        padding: .5rem 0;
+
+        &:hover {
+            color: variables.$text-inverted-dark-color;
+            border-bottom: 2px solid variables.$primary-color;
+            transition: all .3s ease;
+        }
+    }
+}
+
+.g-sidebar--hidden {
+    left: -100%;
+    transition: all .3s ease;
+}
+
+@media screen and (min-width: variables.$breakpoint-s) {
+    .g-sidebar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: variables.$breakpoint-s) {
+    .m-navbar {
+        position: sticky;
+        left: 0;
+        top: 0;
+        z-index: variables.$z-2;
+    }
+
+    .m-navbar__bottom {
+        display: none;
+        border-top: none;
+    }
+
+    .m-navbar__top {
+
+        & button {
+            border: none;
+            padding: .25rem;
+        }
+
+        & svg[width="130"] {
+            display: none;
+        }
+
+        & figure {
+            border: none;
+            padding: 0;
+        }
+    }
+}
+
+.m-navbar__items {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: all .3s ease;
+
+    &:hover {
+        color: variables.$text-inverted-dark-color;
+        border-bottom: 2px solid variables.$primary-color;
+        transition: all .3s ease;
+    }
+}

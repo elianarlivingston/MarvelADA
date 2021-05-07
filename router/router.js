@@ -3,6 +3,7 @@ import { Loading } from '../components/Loading.js'
 
 const parseRequestId = () => {
     const { hash } = window.location
+
     const elementsHash = hash.split('/')
 
     return {
@@ -11,7 +12,7 @@ const parseRequestId = () => {
     }
 }
 
-const router = async (routes = []) => {
+export const router = async (routes = []) => {
     const request = parseRequestId()
     const parseUrl = (request.resource ? `/${request.resource}` : '/') + (request.id ? '/:id' : '')
     const route = routes?.find(el => el.path === parseUrl)
@@ -20,7 +21,9 @@ const router = async (routes = []) => {
         if(!request.id) {
             console.log(route)
             $('#root').innerHTML = Loading()
-            $('#root').innerHTML = await route?.component()
+            const element = await route?.component()
+            $('#root').innerHTML = ''
+            $('#root').appendChild(element)
             return 
         }
 
@@ -32,8 +35,9 @@ const router = async (routes = []) => {
         const routeDefault = routes?.find(el => el.path === '/')
 
         console.log(routeDefault)
+        $('#root').innerHTML = Loading()
         $('#root').innerHTML = await routeDefault?.component()
     }
 }
 
-export default router
+export const push = (path) => window.location.assign(path) 

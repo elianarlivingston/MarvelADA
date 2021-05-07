@@ -1,0 +1,23 @@
+@use "../settings/variables";
+
+.is-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.is-text-uppercase {
+    text-transform: uppercase;
+}
+
+.is-text-color-inverted-dark {
+    color: variables.$text-inverted-dark-color;
+}
+
+.is-bold {
+    font-weight: bold;
+}
+
+.is-text-right {
+    text-align: right;
+}

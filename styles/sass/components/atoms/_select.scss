@@ -1,0 +1,22 @@
+@use "../../settings/variables";
+
+
+.m-select {
+    padding: .5rem variables.$spacing-xs;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: variables.$primary-color;
+}
+
+.m-select__option {
+    font-weight: inherit;
+    color: variables.$text-inverted-dark-color;
+}
+
+.m-select__option:checked {
+    color: variables.$primary-color;
+}

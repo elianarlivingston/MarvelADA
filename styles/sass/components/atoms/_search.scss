@@ -1,0 +1,19 @@
+@use "../../settings/variables";
+
+.a-search {
+    display: flex;
+    min-width: 290px;
+    gap: 1rem;
+    align-items: center;
+    padding: variables.$spacing-xs;
+
+    border-bottom: 2px solid variables.$background-muted-ligth-color;
+}
+
+.a-search__input {
+    background-color: transparent;
+    display: flex;
+    width: 100%;
+    border: 0;
+    outline: none;
+}

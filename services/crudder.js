@@ -6,9 +6,13 @@ const crudder = url => path => {
             const newUrl = `${url}/${path}`
             return fetchApi(newUrl, params)
         },
-        getOne: (id, params = {}) => {
+        getOne: (id) => {
             const newUrl = `${url}/${path}/${id}`
-            return fetchApi(newUrl, params)
+            return fetchApi(newUrl)
+        },
+        getAllOf: (id, subpath) => {
+            const newUrl = `${url}/${path}/${id}/${subpath}`
+            return fetchApi(newUrl)
         }
     })
 }

@@ -1,0 +1,15 @@
+@use "sass:math";
+
+
+$fs-family: 'Roboto',
+sans-serif;
+
+$fs-base: 1rem;
+$ratio: 1.3;
+
+$h6: $fs-base * math.pow($ratio, -1);
+$h5: $fs-base * math.pow($ratio, 0);
+$h4: $fs-base * math.pow($ratio, 1);
+$h3: $fs-base * math.pow($ratio, 2);
+$h2: $fs-base * math.pow($ratio, 3);
+$h1: $fs-base * math.pow($ratio, 4);

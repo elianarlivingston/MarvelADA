@@ -1,0 +1,80 @@
+@use "../../settings/variables";
+
+
+.g-cards {
+
+    &__filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+
+        &> :first-child {
+            flex-grow: 1;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-column-gap: 1rem;
+        grid-row-gap: 2.5rem;
+    }
+
+    &__item {
+        justify-self: center;
+        aspect-ratio: 1/2;
+    }
+
+}
+
+.g-characters {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+        grid-column-gap: 1rem;
+        grid-row-gap: 2.5rem;
+    }
+}
+
+.g-one-characters {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+
+    & figure {
+        margin: 0;
+        padding: 0;
+    }
+
+    & img {
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: variables.$breakpoint-s) {
+    .g-characters {
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-column-gap: 1rem;
+            grid-row-gap: 2.5rem;
+        }
+
+        &__item {
+            justify-self: center;
+        }
+    }
+
+    .g-one-characters {
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 2rem;
+
+        & figure {
+            width: 100%;
+        }
+
+    }
+}

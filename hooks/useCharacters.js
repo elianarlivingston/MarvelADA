@@ -1,4 +1,5 @@
 import base from '../services/crudder.js'
+import { defaultImage } from '../config/index.js'
 
 const { getAll, getOne } = base('characters')
 
@@ -10,7 +11,10 @@ export default function useCharacters() {
                 const { offset, limit, total, count, results } = res?.data
                 const characters = results.map(character => {
                     const { id, name, thumbnail} = character
-                    return ({ id, name, thumbnail })
+                    const image = thumbnail?.path.includes('image_not_available') ? defaultImage : `${thumbnail?.path}.${thumbnail?.extension}`
+
+
+                    return ({ id, name, image })
                 })
 
                 return {
@@ -21,13 +25,15 @@ export default function useCharacters() {
 
             return data || {}
         },
-        getOneCharacter: async (id, params) => {
-            const data = await getOne(id, params)
+        getOneCharacter: async (id) => {
+            const data = await getOne(id)
             .then(res => {
                 const { offset, limit, total, count, results } = res?.data
                 const characters = results.map(character => {
                     const { id, name, description, thumbnail} = character
-                    return ({ id, name, description, thumbnail })
+                    const image = thumbnail?.path.includes('image_not_available') ? defaultImage : `${thumbnail?.path}.${thumbnail?.extension}`
+
+                    return ({ id, name, description, image })
                 })
 
                 return {

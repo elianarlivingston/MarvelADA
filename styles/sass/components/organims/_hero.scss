@@ -1,0 +1,39 @@
+@use "../../settings/variables";
+
+.g-hero {
+    width: 100%;
+    height: calc(100vh - 52px);
+    background-image: url('https://terrigen-cdn-dev.marvel.com/content/prod/1x/characters_art_mas_mob_01.jpg');
+    background-color: variables.$background-muted-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.g-hero__info {
+    width: 100%;
+    max-width: 140ch;
+    text-align: center;
+    padding: 1rem;
+    color: variables.$text-inverted-color;
+
+    & h1 {
+        font-size: variables.$h2;
+    }
+}
+
+
+@media screen and (min-width: variables.$breakpoint-s) {
+    .g-hero {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/1;
+    }
+
+    .g-hero__info {
+        & h1 {
+            font-size: variables.$h1;
+        }
+    }
+}

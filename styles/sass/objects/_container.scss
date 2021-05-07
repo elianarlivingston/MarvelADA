@@ -1,0 +1,13 @@
+@use "../settings/variables";
+
+.o-container {
+    max-width: variables.$max-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: variables.$breakpoint-s) {
+    .o-container {
+        padding: 0 1rem;
+    }
+}

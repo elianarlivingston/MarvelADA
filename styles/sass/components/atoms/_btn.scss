@@ -1,0 +1,67 @@
+@use "../../settings/variables";
+
+.a-btn {
+    display: inline-block;
+    padding: 0.75rem 1.87rem;
+    border: none;
+    cursor: pointer;
+    font-size: variables.$h6;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    outline: none;
+
+    &--block {
+        display: block;
+        width: 100%;
+    }
+
+    &--primary {
+        background: variables.$primary-color;
+        color: variables.$text-inverted-color;
+
+        &:hover,
+        &:focus {
+            background: variables.$primary-dark-color;
+            color: variables.$text-inverted-color;
+        }
+    }
+
+    // &--secondary {
+    //     border: 1px solid variables.$text-inverted-color;
+    //     background: transparent;
+    //     color: variables.$text-inverted-color;
+
+    //     &:hover,
+    //     &:focus {
+    //         border-color: variables.$text-inverted-dark-color;
+    //         color: variables.$text-inverted-dark-color;
+    //     }
+    // }
+
+    &--ghost {
+        background-color: transparent;
+        color: variables.$text-inverted-dark-color;
+
+        &:hover,
+        &:focus {
+            color: variables.$primary-color;
+        }
+    }
+}
+
+.a-btn-icon {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+}

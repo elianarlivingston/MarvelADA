@@ -1,0 +1,25 @@
+@use '../settings/variables';
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: bold;
+    line-height: 1.13;
+}
+
+h1 {
+    font-size: variables.$h1;
+}
+
+h2 {
+    font-size: variables.$h2;
+}
+
+h3 {
+    font-size: variables.$h3;
+}
+
+h4 {
+    font-size: variables.$h4;
+}

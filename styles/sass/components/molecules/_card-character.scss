@@ -1,0 +1,74 @@
+@use "../../settings/variables";
+
+.m-card-character {
+    padding: 0;
+    width: 100%;
+    aspect-ratio: 1/2;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+
+    background-color: variables.$background-muted-color;
+
+    & img {
+        transform: scale(1);
+        transition: transform .3s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.2);
+        transition: transform .3s ease;
+    }
+
+    &:hover .m-card-character__content::after {
+        height: 100%;
+        transition: all .3s ease;
+    }
+}
+
+.m-card-character__content {
+    width: 100%;
+    flex-grow: 1;
+    padding: variables.$spacing-s;
+    color: variables.$text-inverted-color;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: .25rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: variables.$primary-color;
+        transition: all .3s ease;
+    }
+}
+
+.m-card-character__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    z-index: 1;
+    position: relative;
+    font-size: variables.$h5;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.m-card-character__image {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    aspect-ratio: 10/11;
+    overflow: hidden;
+}
+
+@media screen and (min-width: variables.$breakpoint-s) {
+    .m-card-character {
+        max-width: 200px;
+    }
+}

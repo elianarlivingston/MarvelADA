@@ -1,0 +1,5 @@
+@use "../settings/variables";
+
+.text-color-primary {
+    color: variables.$primary-color;
+}

@@ -8,9 +8,9 @@ export const getParams = (url) => {
         }
 
         // Readonly
-        for (const key in params) {
-            Object.defineProperty(params, key, { value: params[key], writable: false })
-        }
+        // for (const key in params) {
+        //     Object.defineProperty(params, key, { value: params[key], writable: false })
+        // }
         
         return params
     } catch (error) {

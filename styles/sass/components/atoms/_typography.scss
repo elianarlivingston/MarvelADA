@@ -1,0 +1,21 @@
+@use "../../settings/variables";
+
+.a-heading-1 {
+    font-size: variables.$h1;
+    font-weight: bold;
+}
+
+.a-heading-2 {
+    font-size: variables.$h2;
+    font-weight: bold;
+}
+
+.a-heading-3 {
+    font-size: variables.$h3;
+    font-weight: bold;
+}
+
+.a-heading-4 {
+    font-size: variables.$h4;
+    font-weight: bold;
+}

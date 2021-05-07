@@ -1,6 +1,7 @@
 import base from '../services/crudder.js'
+import {defaultImage} from '../config/index.js'
 
-const { getAll, getOne } = base('comics')
+const { getAll, getOne, getAllOf } = base('comics')
 
 export default function useComics() {
     return {
@@ -10,10 +11,12 @@ export default function useComics() {
                 const { offset, limit, total, count, results } = res?.data
                 const comics = results.map(comic => {
                     const { thumbnail, id, title } = comic
+                    const image = thumbnail?.path.includes('image_not_available') ? defaultImage : `${thumbnail?.path}.${thumbnail?.extension}`
+
                     return {
-                        thumbnail,
                         id,
-                        title
+                        title,
+                        image
                     }
                 })
 
@@ -25,30 +28,44 @@ export default function useComics() {
 
             return data || {}
         },
-        getOneComic: async (id, params) => {
-            const data = await getOne(id, params)
+        getOneComic: async (id) => {
+            const data = await getOne(id)
             .then(res => {
-                const { offset, limit, total, count, results } = res?.data
-                const comics = results.map(comic => {
-                    const { thumbnail, id, title, creators, characters: { items }, description, dates  } = comic
+                const comics = res?.data?.results.map(comic => {
+                    const { thumbnail, id, title, creators, description, dates  } = comic
                     const writer = creators?.items?.filter(el => el.role === 'writer')
                     const releaseDate = new Intl.DateTimeFormat('es-AR').format(new Date(dates?.find(el => el.type === 'onsaleDate').date))
+                    const image = thumbnail?.path.includes('image_not_available') ? defaultImage : `${thumbnail?.path}.${thumbnail?.extension}`
 
                     return {
-                        thumbnail,
                         id,
                         title,
                         writer,
                         releaseDate,
                         description,
-                        characters: items
+                        image
                     }
                 })
 
-                return {
-                    meta: { offset, limit, total, count },
-                    results: comics[0]
-                }
+                return comics[0]
+            })
+
+            return data || {}
+        },
+        getCharactersOfComics: async (id) => {
+            const data = await getAllOf(id, 'characters')
+            .then(res => {
+                const characters = res?.data?.results?.map(character => {
+                    const { thumbnail, id, name } = character
+                    const image = thumbnail?.path.includes('image_not_available') ? defaultImage : `${thumbnail?.path}.${thumbnail?.extension}`
+                    return {
+                        id,
+                        name,
+                        image
+                    }
+                })
+
+                return { characters }
             })
 
             return data || {}

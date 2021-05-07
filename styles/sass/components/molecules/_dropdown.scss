@@ -1,0 +1,48 @@
+@use "../../settings/variables";
+
+.m-dropdown {
+    position: relative;
+    text-transform: uppercase;
+}
+
+.m-dropdown__select {
+    padding: variables.$spacing-xs;
+    max-width: max-content;
+    cursor: pointer;
+    font-weight: bold;
+    color: variables.$text-inverted-dark-color;
+}
+
+.m-dropdown__select:hover {
+    color: variables.$primary-color;
+}
+
+.m-dropdown__menu {
+    max-width: 260px;
+    width: 100%;
+    padding: variables.$spacing-s;
+    border-radius: 4px;
+    position: absolute;
+    top: 4rem;
+    z-index: variables.$z-2;
+
+    background-color: variables.$text-inverted-color;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+    transition: all .3s ease;
+}
+
+.m-dropdown__menu--hidden {
+    display: none;
+    transition: all .4s ease;
+}
+
+.m-dropdown__icon {
+    color: inherit;
+    transform: rotate(0);
+    transition: all .4s ease;
+}
+
+.m-dropdown__icon--rotate {
+    transform: rotate(180deg);
+    transition: all .3s ease;
+}

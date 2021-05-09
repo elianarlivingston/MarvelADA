@@ -1,6 +1,7 @@
 import Comics from '../views/Comics.js'
 import Comic from '../views/Comic.js'
 import Characters from '../views/Characters.js'
+import Character from '../views/Character.js'
 import Home from '../views/Home.js'
 
 const routes = [
@@ -15,8 +16,8 @@ const routes = [
         name: 'Characters'
     },
     {
-        path: '/characters/id:',
-        component:  (id) => `<h1>Personajes ${id}</h1>`,
+        path: '/characters/:id',
+        component: async (id) => await Character(id),
         name: 'Characters'
     },
     {

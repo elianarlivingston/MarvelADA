@@ -28,6 +28,7 @@ export const router = async (routes = []) => {
 
         route.id = request.id
         $('#root').innerHTML = Loading()
+        console.log(route?.component)
         $('#root').innerHTML = await route?.component(route.id)
     } else {
         const routeDefault = routes?.find(el => el.path === '/')

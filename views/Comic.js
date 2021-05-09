@@ -1,12 +1,9 @@
-import { getParams } from '../utils/URLParams.js'
 import { useComics } from '../hooks/index.js'
 const { getOneComic, getCharactersOfComics } = useComics()
 
 const Comic = async (id) => {
     const comic = await getOneComic(id)
-    console.log(comic)
     const characters = await getCharactersOfComics(id)
-    console.log(characters)
 
     const charactersHTML = characters?.characters?.reduce((acc, el) => acc + (
         `
@@ -26,7 +23,7 @@ const Comic = async (id) => {
     return `
         <article class="is-py-8 o-container">
             <div class="g-one-characters">
-                <header>
+                <header class="is-w-full">
                     <h3>${comic?.title}</h3>
                     <p class="is-flex is-flex-col is-gap-4">
                         <span class="is-bold a-heading-4">Publicado</span>

@@ -18,7 +18,7 @@ const Characters = async () => {
     }
 
     const html = characters?.results?.reduce((acc, el) => acc + (
-        `<article class="m-card-character g-characters__item" id="${el?.id}">
+        `<article class="m-card-character g-characters__item is-z-index-2" data-character id="${el?.id}">
             <header class="m-card-character__content">
                 <h3 class="m-card-character__title a-heading-3">${el?.name}</h3>
             </header>

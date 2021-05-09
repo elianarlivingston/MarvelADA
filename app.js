@@ -27,6 +27,12 @@ $('#root').addEventListener('click', event => {
         push(`#/characters/${id}`)
         return 
     }
+
+    if(event.target.matches('[data-character]')) {
+        const id = event.target.id
+        push(`#/characters/${id}`)
+        return 
+    }
     
 })
 

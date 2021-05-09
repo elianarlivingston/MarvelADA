@@ -1,6 +1,7 @@
 import { getParams, setParams } from '../utils/URLParams.js'
 import { push } from '../router/router.js'
 import { useComics } from '../hooks/index.js'
+
 const { getAllComics } = useComics()
 
 const Comics = async () => {
@@ -8,16 +9,24 @@ const Comics = async () => {
 
     const comics = await getAllComics(params)
 
+
+    const { total } = comics?.meta
+
+    if(total === 0) {
+        params.offset = 0
+        const newURL = setParams(`${location.origin}/${location.hash}`, params)
+        push(newURL)
+    }
+
     const html = comics?.results?.reduce((acc, el) => acc + (
-        `
-            <article class="m-card-comics g-cards__item" data-comic id="${el?.id}">
-                <header>
-                    <h3 class="m-card-comics__title">${el?.title}</h3>
-                </header>
-                <figure class="m-card-comics__image">
-                    <img src="${el?.image}" alt="Comic cover">
-                </figure>
-            </article>
+        `<article class="m-card-comics g-cards__item" data-comic id="${el?.id}">
+            <header>
+                <h3 class="m-card-comics__title">${el?.title}</h3>
+            </header>
+            <figure class="m-card-comics__image">
+                <img src="${el?.image}" alt="Comic cover">
+            </figure>
+        </article>
         `
     ), '')
 
@@ -46,7 +55,12 @@ const Comics = async () => {
             <h2>Comics</h2>
         </header>
 
-        <div class="g-cards__grid">${html}</div>
+        <div class="g-cards__grid">
+            ${
+                comics?.results?.length === 0 ? `<h3 class="is-flex is-justify-center">No hay resultados...</h3>` : html
+            }  
+        </div>
+
 
         <div class="a-pagination">
             <button class="a-pagination__btn" data-pagination="prev">
@@ -73,8 +87,6 @@ const Comics = async () => {
             const { offset, limit } = comics?.meta
             let newOffset = parseInt(offset)
 
-            console.log(newOffset)
-
             if(newOffset <= parseInt(limit)) {
                 newOffset = 0
             } else {
@@ -90,13 +102,16 @@ const Comics = async () => {
         }
 
         if(event.target.matches('[data-pagination="next"]')) {
-            const { offset, limit, total, count } = comics?.meta
+            const { offset, limit, total } = comics?.meta
             const pages = Math.ceil(parseInt(total) / parseInt(limit))
             let newOffset = parseInt(offset)
 
-            if(newOffset < pages) {
+
+            if(newOffset < total) {
                 newOffset += 20
-            } 
+            } else {
+                newOffset = 0
+            }
 
             const params = getParams(location.href)
             params.offset = newOffset
@@ -104,11 +119,14 @@ const Comics = async () => {
             const newURL = setParams(`${location.origin}/${location.hash}`, params)
 
             push(newURL)
-
-
         }
     })
 
+    const search = div.querySelector('[data-filter-comics="search"]')
+    search.value = params.titleStartsWith ?? ''
+
+    const select = div.querySelector('[data-filter-comics="order"]')
+    select.value = params?.orderBy ?? ''
 
     return div
 }

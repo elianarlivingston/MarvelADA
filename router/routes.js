@@ -1,5 +1,6 @@
 import Comics from '../views/Comics.js'
 import Comic from '../views/Comic.js'
+import Characters from '../views/Characters.js'
 import Home from '../views/Home.js'
 
 const routes = [
@@ -10,7 +11,7 @@ const routes = [
     },
     {
         path: '/characters',
-        component:  () => `<h1>Personajes</h1>`,
+        component: Characters,
         name: 'Characters'
     },
     {

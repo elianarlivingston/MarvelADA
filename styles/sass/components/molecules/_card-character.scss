@@ -65,6 +65,7 @@
     width: 100%;
     aspect-ratio: 10/11;
     overflow: hidden;
+    background-color: variables.$background-muted-ligth-color;
 }
 
 @media screen and (min-width: variables.$breakpoint-s) {

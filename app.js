@@ -27,23 +27,7 @@ $('#root').addEventListener('click', event => {
         push(`#/characters/${id}`)
         return 
     }
-
-    // if(event.target.matches('[data-pagination="prev"]')) {
-    //     const params = getParams(location.href)
-    //     const existOffset = params.hasOwnProperty('offset')
-    //     const existLimit = params.hasOwnProperty('limit')
-
-    //     if(!existOffset || offset === 0) {
-    //         params.offset = 0
-    //         event.target.setAttribute('disabled', '')
-    //     }
-
-    //     if(!existLimit) params.limit = 20
-    // }
-
-    // if(event.target.matches('[data-pagination="next"]')) {
-    //     console.log(event.target)
-    // }
+    
 })
 
 $('#root').addEventListener('change', event => {
@@ -53,6 +37,8 @@ $('#root').addEventListener('change', event => {
         const params = getParams(location.href)
         params.titleStartsWith = value
 
+        params.offset = 0
+
         const newURL = setParams(`${location.origin}/${location.hash}`, params)
 
         push(newURL)
@@ -60,6 +46,47 @@ $('#root').addEventListener('change', event => {
 
     if(event.target.matches('[data-filter-comics="order"]')) {
         const value = event.target.value
+        console.log(event.target.value)
+
+        const params = getParams(location.href)
+        params.orderBy = value
+
+        params.offset = 0
+
+        const newURL = setParams(`${location.origin}/${location.hash}`, params)
+
+        push(newURL)
+    }
+
+    if(event.target.matches('[data-filter-comics="search"]')) {
+        const value = event.target.value
+
+        const params = getParams(location.href)
+        params.titleStartsWith = value
+
+        params.offset = 0
+
+        const newURL = setParams(`${location.origin}/${location.hash}`, params)
+
+        push(newURL)
+    }
+
+    if(event.target.matches('[data-filter-characters="search"]')) {
+        const value = event.target.value
+
+        const params = getParams(location.href)
+        params.nameStartsWith = value
+
+        params.offset = 0
+
+        const newURL = setParams(`${location.origin}/${location.hash}`, params)
+
+        push(newURL)
+    }
+
+    if(event.target.matches('[data-filter-characters="order"')) {
+        const value = event.target.value
+        console.log(event.target.value)
 
         const params = getParams(location.href)
         params.orderBy = value

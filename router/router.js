@@ -19,7 +19,6 @@ export const router = async (routes = []) => {
     
     if(route) {
         if(!request.id) {
-            console.log(route)
             $('#root').innerHTML = Loading()
             const element = await route?.component()
             $('#root').innerHTML = ''
@@ -28,13 +27,11 @@ export const router = async (routes = []) => {
         }
 
         route.id = request.id
-        console.log(route)
         $('#root').innerHTML = Loading()
         $('#root').innerHTML = await route?.component(route.id)
     } else {
         const routeDefault = routes?.find(el => el.path === '/')
 
-        console.log(routeDefault)
         $('#root').innerHTML = Loading()
         $('#root').innerHTML = await routeDefault?.component()
     }

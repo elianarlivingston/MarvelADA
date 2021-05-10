@@ -17,6 +17,6 @@ const crudder = url => path => {
     })
 }
 
-const base = crudder('http://gateway.marvel.com/v1/public')
+const base = crudder('https://gateway.marvel.com/v1/public')
 
 export default base

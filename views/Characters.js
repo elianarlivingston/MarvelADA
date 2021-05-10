@@ -23,7 +23,7 @@ const Characters = async () => {
                 <h3 class="m-card-character__title a-heading-3">${el?.name}</h3>
             </header>
             <figure class="m-card-character__image">
-                <img src="${el?.image}" alt="Character cover">
+                <img src="${el?.image}" alt="Character cover" crossorigin="anonymous">
             </figure>
         </article>
         `
@@ -125,8 +125,7 @@ const Characters = async () => {
     search.value = params.nameStartsWith ?? ''
 
     const select = div.querySelector('[data-filter-characters="order"]')
-    select.value = params?.orderBy ?? ''
-
+    select.value = params?.orderBy
     return div
 }
 

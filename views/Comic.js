@@ -12,7 +12,7 @@ const Comic = async (id) => {
                     <h3 class="m-card-character__title a-heading-3">${el?.name}</h3>
                 </header>
                 <figure class="m-card-character__image">
-                    <img src="${el?.image}" alt="cover character">
+                    <img src="${el?.image}" alt="cover character"  crossorigin="anonymous">
                 </figure>
             </article>
         `
@@ -41,7 +41,7 @@ const Comic = async (id) => {
                     </p>
                 </header>
                 <figure class="is-w-max-80 g-characters__item">
-                    <img src="${comic?.image}" alt="Comic cover">
+                    <img src="${comic?.image}" alt="Comic cover"  crossorigin="anonymous">
                 </figure>
             </div>
             <section>

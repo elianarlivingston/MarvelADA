@@ -126,7 +126,7 @@ const Comics = async () => {
     search.value = params.titleStartsWith ?? ''
 
     const select = div.querySelector('[data-filter-comics="order"]')
-    select.value = params?.orderBy ?? ''
+    select.value = params?.orderBy
 
     return div
 }
